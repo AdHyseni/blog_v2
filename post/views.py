@@ -13,4 +13,5 @@ def contact(request):
 
 def blog(request):
     postimet = Post.objects.all()
-    return render(request,'blog/blog.html')
+    context = {'postimet':postimet}
+    return render(request,'blog/blog.html',context)
