@@ -13,5 +13,11 @@ def contact(request):
 
 def blog(request):
     postimet = Post.objects.all()
+    
     context = {'postimet':postimet}
     return render(request,'blog/blog.html',context)
+
+def read_blog(request,slug):
+    blog = get_object_or_404(Post, slug=slug)
+    context = {'blog' : blog }
+    return render(request, 'blog/post.html',context)
